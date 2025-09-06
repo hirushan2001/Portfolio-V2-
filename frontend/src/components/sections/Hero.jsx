@@ -26,7 +26,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-start lg:items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 relative overflow-hidden">
+      <section 
+        id="home"
+        className="min-h-screen flex items-start lg:items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 relative overflow-hidden"
+      >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

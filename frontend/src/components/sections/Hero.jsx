@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Download, ArrowDown, Code, Palette, Database, Smartphone } from 'lucide-react';
 import portfolioData from '../../data/mock';
+import { ReactTyped } from "react-typed";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="min-h-screen flex items-start lg:items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -43,8 +44,14 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-light">
-                {personal.title}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light min-h-[3rem] flex items-center ">
+                <ReactTyped 
+                  strings={personal.title}
+                  typeSpeed={100}
+                  backSpeed={50}
+                  loop={true}
+                  className="text-blue-600 dark:text-blue-400"                
+                  />
               </h2>
               
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">

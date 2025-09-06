@@ -48,7 +48,7 @@ const Header = ({ activeSection }) => {
             className="text-xl font-bold cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             onClick={() => scrollToSection('#home')}
           >
-            &lt;AJ/&gt;
+            &lt;DH/&gt;
           </div>
 
           {/* Desktop Navigation */}

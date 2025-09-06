@@ -43,7 +43,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="App min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="App min-h-screen transition-colors duration-300">
         <AnimatedBackground />
         <Header activeSection={activeSection} />
         <main>

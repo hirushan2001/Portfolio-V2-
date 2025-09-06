@@ -2,14 +2,14 @@
 
 export const portfolioData = {
   personal: {
-    name: "Alex Johnson",
-    title: "Full-Stack Software Engineer",
+    name: "Dhananjana Hirushan",
+    title: ["Full-Stack Developer", "Front-End Developer", "Content Creator"], 
     tagline: "Building scalable solutions across web, mobile, and backend systems",
     photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
     resumeUrl: "/resume.pdf",
     location: "San Francisco, CA",
-    email: "alex.johnson@email.com",
-    phone: "+1 (555) 123-4567",
+    email: "dhpdhananjana@email.com",
+    phone: "+94 (076) 451-2428",
     social: {
       github: "https://github.com/alexjohnson",
       linkedin: "https://linkedin.com/in/alexjohnson",

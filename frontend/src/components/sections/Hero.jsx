@@ -80,7 +80,7 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <a
                 href={personal.resumeUrl}
-                download
+                download="Dhananjana_Hirushan_CV.pdf"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-blue-700 hover:to-purple-700"
               >
                 <Download size={20} className="mr-2" />

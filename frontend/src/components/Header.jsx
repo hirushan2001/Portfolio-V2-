@@ -34,10 +34,10 @@ const Header = ({ activeSection }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+        ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+        : 'bg-white dark:bg-gray-900'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ const Header = ({ activeSection }) => {
 
             {/* GitHub */}
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/hirushan2001"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
@@ -85,7 +85,7 @@ const Header = ({ activeSection }) => {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/in/your-username"
+              href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"

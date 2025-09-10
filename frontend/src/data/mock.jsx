@@ -1,6 +1,11 @@
 // Mock data for the portfolio - This will be replaced with backend integration later
 import resume from '../assets/mycv.pdf';
 import photo from '../assets/myphoto.png';
+import uomLogo from '../assets/uom_Logo.png';
+import aloysiusLogo from '../assets/AloysiusLogo.png';
+import siddarthaLogo from '../assets/siddarthaLogo.png';
+import agrithmicsLogo from '../assets/AgrithmicsLogo.png';
+
 export const portfolioData = {
   personal: {
     name: "Dhananjana Hirushan",
@@ -20,79 +25,65 @@ export const portfolioData = {
   },
 
   about: {
-    description: "Passionate full-stack developer with 5+ years of experience building scalable web applications, mobile apps, and robust backend systems. I love solving complex problems and creating user-centric solutions that make a real impact.",
+    description: "Passionate IT undergraduate with proven problem-solving skills and hands-on industry experience. A collaborative team player with leadership qualities and adaptability, eager to build innovative solutions and explore emerging technologies.",
     highlights: [
-      "5+ years of full-stack development experience",
-      "Led development teams of 3-8 developers",
-      "Built applications serving 100K+ users",
-      "Expert in modern web and mobile technologies"
+      "2+ years of full-stack development experience",
+      "Undergraduate in Information Technology at the University of Moratuwa",
+      "Applied academic knowledge to real-world projects and industry practices",
+      "Continuously learning and adapting to new technologies and frameworks"
     ],
-    interests: ["Open Source", "AI/ML", "Cloud Architecture", "Mobile Development"]
+    interests: ["Open Source", "AI/ML", "Web Development", "Mobile Development"]
   },
 
-  experience: [
+   experience: [
     {
       id: 1,
-      company: "TechCorp Inc.",
-      position: "Senior Full-Stack Engineer",
-      duration: "2022 - Present",
-      location: "San Francisco, CA",
-      description: "Leading development of microservices architecture serving 50K+ daily active users. Built React Native mobile app with 4.8 App Store rating.",
+      company: "Agrithmics Pvt Ltd",
+      position: "Intern Software Engineer",
+      duration: "2025 Feb - 2025 Aug",
+      location: "Rajagiriya, Sri Lanka",
+      logo: agrithmicsLogo,
+      description: "Contributed to multiple ERP projects in the agricultural sector, working on both frontend and backend development while improving automation processes and system functionality.",
       achievements: [
-        "Reduced API response time by 40% through optimization",
-        "Led migration to containerized deployment reducing costs by 30%",
-        "Mentored 3 junior developers"
+        "Developed automation processes for supplier payment and advance payment workflows",
+        "Created report screens and implemented mobile APIs for production use",
+        "Fixed critical bugs across ERP modules ensuring smooth system performance",
+        "Collaborated with team leads and engineers using Agile practices with Azure DevOps"
       ],
-      technologies: ["React", "Node.js", "Python", "AWS", "Docker", "React Native"]
-    },
-    {
-      id: 2,
-      company: "StartupXYZ",
-      position: "Full-Stack Developer",
-      duration: "2020 - 2022",
-      location: "Remote",
-      description: "Developed MVP from concept to launch, handling both frontend and backend development. Built scalable REST APIs and responsive web applications.",
-      achievements: [
-        "Built entire platform from scratch in 6 months",
-        "Implemented real-time chat system with WebSocket",
-        "Achieved 99.9% uptime in production"
-      ],
-      technologies: ["Vue.js", "Express.js", "MongoDB", "Redis", "Socket.io"]
-    },
-    {
-      id: 3,
-      company: "WebSolutions Ltd.",
-      position: "Frontend Developer",
-      duration: "2019 - 2020",
-      location: "New York, NY",
-      description: "Specialized in creating responsive, accessible web applications with modern JavaScript frameworks.",
-      achievements: [
-        "Improved page load speed by 60%",
-        "Implemented accessibility standards (WCAG 2.1)",
-        "Built component library used across 5 projects"
-      ],
-      technologies: ["React", "TypeScript", "SASS", "Webpack", "Jest"]
+      technologies: ["React.js", "Node.js", ".NET", "MSSQL", "Azure DevOps"]
     }
   ],
 
   education: [
     {
       id: 1,
-      institution: "Stanford University",
-      degree: "Master of Science in Computer Science",
-      duration: "2017 - 2019",
-      location: "Stanford, CA",
-      gpa: "3.8/4.0",
-      focus: "Software Engineering & AI"
+      institution: "University of Moratuwa",
+      degree: "BSc (Hons.) in Information Technology",
+      duration: "2022 - 2026 (Expected)",
+      location: "Moratuwa, Sri Lanka",
+      logo: uomLogo, 
+      gpa: "Current GPA: 3.42 / 4.0",
+      focus: "Software Engineering"
     },
     {
       id: 2,
-      institution: "UC Berkeley",
-      degree: "Bachelor of Science in Computer Science",
-      duration: "2013 - 2017",
-      location: "Berkeley, CA",
-      gpa: "3.7/4.0",
-      focus: "Computer Systems & Algorithms"
+      institution: "St. Aloysius College",
+      degree: "G.C.E. Advanced Level (Physical Science Stream)",
+      duration: "2011 - 2020",
+      location: "Galle, Sri Lanka",
+      logo: aloysiusLogo,
+      gpa: "Z-Score: 1.7401",
+      focus: "Mathematics, Physics, Chemistry"
+    },
+    {
+      id: 3,
+      institution: "MR/Siddartha College",
+      degree: "Primary Education",
+      duration: "2006 - 2011",
+      location: "Weligama, Sri Lanka",
+      logo: siddarthaLogo,
+      gpa: "", // No GPA for primary education
+      focus: "General Education"
     }
   ],
 

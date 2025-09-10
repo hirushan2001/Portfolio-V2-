@@ -2,6 +2,60 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Calendar, Award, GraduationCap, Briefcase } from 'lucide-react';
 import portfolioData from '../../data/mock';
 
+// Component for handling education logos with fallback
+const EducationLogo = ({ edu }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+      {!imgError && edu.logo ? (
+        <img
+          src={edu.logo}
+          alt={`${edu.institution} logo`}
+          className="w-full h-full object-contain"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center text-white font-bold text-sm">
+          {edu.institution
+            .split(' ')
+            .map(word => word[0])
+            .join('')
+            .slice(0, 2)
+            .toUpperCase()}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Component for handling experience/company logos with fallback
+const CompanyLogo = ({ exp }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center overflow-hidden">
+      {!imgError && exp.logo ? (
+        <img
+          src={exp.logo}
+          alt={`${exp.company} logo`}
+          className="w-full h-full object-contain"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center text-white font-bold text-sm">
+          {exp.company
+            .split(' ')
+            .map(word => word[0])
+            .join('')
+            .slice(0, 2)
+            .toUpperCase()}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('experience');
@@ -31,25 +85,29 @@ const Experience = () => {
       {experience.map((exp, index) => (
         <div
           key={exp.id}
-          className={`relative transform transition-all duration-500 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}
+          className={`relative transform transition-all duration-500 ${
+            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+          }`}
           style={{ transitionDelay: `${index * 0.2}s` }}
         >
-          {/* Timeline line */}
           {index !== experience.length - 1 && (
             <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-500 opacity-30"></div>
           )}
-          
-          {/* Timeline dot */}
           <div className="absolute left-4 top-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
-          
           <div className="ml-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group hover:scale-[1.02]">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {exp.position}
-                </h3>
-                <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">{exp.company}</p>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <CompanyLogo exp={exp} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {exp.position}
+                  </h3>
+                  <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">{exp.company}</p>
+                </div>
               </div>
+
               <div className="flex flex-col md:items-end mt-2 md:mt-0 space-y-1">
                 <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} className="mr-1" />
@@ -61,12 +119,11 @@ const Experience = () => {
                 </div>
               </div>
             </div>
-            
+
             <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
               {exp.description}
             </p>
-            
-            {/* Achievements */}
+
             <div className="mb-4">
               <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center">
                 <Award size={16} className="mr-2 text-yellow-500" />
@@ -81,8 +138,7 @@ const Experience = () => {
                 ))}
               </ul>
             </div>
-            
-            {/* Technologies */}
+
             <div className="flex flex-wrap gap-2">
               {exp.technologies.map((tech, i) => (
                 <span
@@ -104,26 +160,32 @@ const Experience = () => {
       {education.map((edu, index) => (
         <div
           key={edu.id}
-          className={`relative transform transition-all duration-500 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}
+          className={`relative transform transition-all duration-500 ${
+            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+          }`}
           style={{ transitionDelay: `${index * 0.2}s` }}
         >
-          {/* Timeline line */}
           {index !== education.length - 1 && (
             <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-500 opacity-30"></div>
           )}
-          
-          {/* Timeline dot */}
           <div className="absolute left-4 top-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
-          
           <div className="ml-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 group hover:scale-[1.02]">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {edu.degree}
-                </h3>
-                <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">{edu.institution}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Focus: {edu.focus}</p>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <EducationLogo edu={edu} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold">{edu.institution}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Focus: {edu.focus}
+                  </p>
+                </div>
               </div>
+
               <div className="flex flex-col md:items-end mt-2 md:mt-0 space-y-1">
                 <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} className="mr-1" />
@@ -133,9 +195,11 @@ const Experience = () => {
                   <MapPin size={14} className="mr-1" />
                   {edu.location}
                 </div>
-                <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-xs font-medium">
-                  GPA: {edu.gpa}
-                </div>
+                {edu.gpa && (
+                  <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-xs font-medium">
+                    {edu.gpa}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -148,18 +212,14 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-white dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              My Journey
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               A timeline of my professional growth and educational background
             </p>
           </div>
 
-          {/* Tabs */}
           <div className="flex justify-center mb-12">
             <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
               {tabs.map((tab) => {
@@ -182,7 +242,6 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Content */}
           <div className="max-w-4xl mx-auto">
             {activeTab === 'experience' ? renderExperience() : renderEducation()}
           </div>

@@ -5,6 +5,12 @@ import uomLogo from '../assets/uom_Logo.png';
 import aloysiusLogo from '../assets/AloysiusLogo.png';
 import siddarthaLogo from '../assets/siddarthaLogo.png';
 import agrithmicsLogo from '../assets/AgrithmicsLogo.png';
+import Handfree from '../assets/projects/Handfree.png';
+import PortfolioV1 from '../assets/projects/PortfolioV1.png';
+import Meethub from '../assets/projects/Meethub1.png';
+import FieldMaster from '../assets/projects/FeildMaster.png';
+import PortfolioV2 from '../assets/projects/PortfolioV2.png';
+import FitnessApp from '../assets/projects/FitnessApp.png';
 import { Icon } from "@iconify/react";
 
 export const portfolioData = {
@@ -132,69 +138,69 @@ skills: {
   projects: [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React frontend, Node.js backend, and MongoDB. Features include real-time inventory, payment processing, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-      demoUrl: "https://demo-ecommerce.com",
-      githubUrl: "https://github.com/alexjohnson/ecommerce-platform",
+      title: "FeidMaster",
+      description: "eldMaster is a comprehensive land measuring and management application available on both mobile and web platforms. It features accurate land measurement, plantation and fertilization count estimation, fencing details estimation, land clearing assessment, and map management tools, including resizing and partitioning lands.",
+      image: FieldMaster,
+      technologies: ["React", "Node.js", "MongoDB", "React Native"],
+      demoUrl: "https://field-master-frontend.vercel.app/",
+      githubUrl: "https://github.com/kanishkazoysa/FieldMaster",
       featured: true,
       category: "Full-Stack"
     },
     {
       id: 2,
-      title: "Task Management Mobile App",
-      description: "Cross-platform mobile app built with React Native. Features offline sync, push notifications, and real-time collaboration.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-      demoUrl: "https://apps.apple.com/app/taskmanager",
-      githubUrl: "https://github.com/alexjohnson/task-manager-app",
+      title: "HandFree.lk",
+      description: "HandFree is an e-commerce platform specializing in iPhone and Apple products, built with the MERN stack and Micro-Service Architecture for scalability. It features secure OTP-based authentication, a PayHere-integrated payment gateway, dynamic product search and filtering, a persistent shopping cart, and a centralized admin dashboard for managing products, orders, and inventory..",
+      image: Handfree,
+      technologies: ["React", "Node.js", "MongoDB", "Express.js",],
+      //demoUrl: "https://apps.apple.com/app/taskmanager",
+      githubUrl: "https://github.com/EADOnlineShoppingSystem",
       featured: true,
-      category: "Mobile"
+      category: "Full-Stack"
     },
     {
       id: 3,
-      title: "Real-time Chat Application",
-      description: "WebSocket-based chat application with message encryption, file sharing, and video calling capabilities.",
-      image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop",
-      technologies: ["Socket.io", "Express.js", "React", "WebRTC"],
+      title: "Portfolio Website V2",
+      description: "My personal portfolio website showcasing my projects, skills, and experience. Built with React.js and Tailwind CSS for a modern, responsive design.",
+      image: PortfolioV2,
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
       demoUrl: "https://chat-app-demo.com",
       githubUrl: "https://github.com/alexjohnson/realtime-chat",
       featured: false,
-      category: "Backend"
+      category: "Frontend"
     },
     {
       id: 4,
-      title: "AI-Powered Analytics Dashboard",
-      description: "Data visualization dashboard with machine learning insights. Built with Python backend and React frontend.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      technologies: ["Python", "FastAPI", "React", "D3.js", "TensorFlow"],
-      demoUrl: "https://analytics-dashboard.com",
-      githubUrl: "https://github.com/alexjohnson/ai-analytics",
+      title: "MeetHub",
+      description: "This project replicates the widely used Zoom video conferencing tool, leveraging the latest Next.js and TypeScript technologies. It enables users to log in securely, create meetings, and access a range of meeting functionalities, including recording, screen sharing, and participant management. With a focus on security and real-time communication, this platform provides a seamless video conferencing experience.",
+      image: Meethub,
+      technologies: ["Next.js", "TypeScript", "Node.js", "Tailwind CSS"],
+      //demoUrl: "https://analytics-dashboard.com",
+      githubUrl: "https://github.com/hirushan2001/MeetHub",
       featured: true,
       category: "Full-Stack"
     },
     {
       id: 5,
-      title: "Weather App",
-      description: "Beautiful weather application with location-based forecasts and interactive maps.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      technologies: ["React", "Weather API", "Mapbox", "CSS3"],
-      demoUrl: "https://weather-app-demo.com",
-      githubUrl: "https://github.com/alexjohnson/weather-app",
+      title: "Portfolio Website V1",
+      description: "A personal portfolio website built with React.js and CSS3, showcasing my projects, skills, and experience with a clean and responsive design.",
+      image: PortfolioV1,
+      technologies: ["React", "Node.js", "Framer Motion"],
+      demoUrl: "https://dhananjanahirushan.vercel.app/",
+      githubUrl: "https://github.com/hirushan2001/portfolio",
       featured: false,
       category: "Frontend"
     },
     {
       id: 6,
-      title: "Fitness Tracking API",
-      description: "REST API for fitness tracking with user authentication, workout logging, and progress analytics.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-      technologies: ["Node.js", "MongoDB", "JWT", "Express.js"],
+      title: "Fitness Mobile App",
+      description: "A React Native mobile app that fetches data from a fitness API to provide users with workout information, exercises, and health insights.",
+      image: FitnessApp,
+      technologies: ["React Native"],
       demoUrl: null,
-      githubUrl: "https://github.com/alexjohnson/fitness-api",
+      githubUrl: "https://github.com/hirushan2001/Fitness_app",
       featured: false,
-      category: "Backend"
+      category: "Mobile"
     }
   ]
 };

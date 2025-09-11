@@ -10,7 +10,7 @@ const Footer = () => {
     { name: 'GitHub', url: personal.social.github, icon: Github },
     { name: 'LinkedIn', url: personal.social.linkedin, icon: Linkedin },
     { name: 'Twitter', url: personal.social.twitter, icon: Twitter },
-    { name: 'Email', url: `mailto:${personal.email}`, icon: Mail }
+    { name: 'Email', scrollTo: 'contact', icon: Mail } // new scrollTo property
   ];
 
   return (
@@ -36,20 +36,32 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
-                    aria-label={social.name}
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
+              const Icon = social.icon;
+              return social.scrollTo ? (
+                <button
+                  key={social.name}
+                  onClick={() => {
+                    const element = document.querySelector(`#${social.scrollTo}`);
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <Icon size={18} />
+                </button>
+              ) : (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
             </div>
           </div>
 

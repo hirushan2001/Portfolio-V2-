@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
 import portfolioData from '../../data/mock';
+import axios from 'axios';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,20 +37,29 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Mock form submission - This will be replaced with backend integration
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/email/send', formData);
+    if (response.data.success) {
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } else {
+      alert('Failed to send email. Please try again.');
+    }
+  } catch (error) {
+    console.error('Email submission error:', error);
+    alert('An error occurred while sending the email.');
+  } finally {
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
+  }
+};
+
 
   const contactInfo = [
     {

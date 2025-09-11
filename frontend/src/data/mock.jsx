@@ -20,13 +20,13 @@ export const portfolioData = {
     tagline: "Building scalable solutions across web, mobile, and backend systems",
     photo: photo,
     resumeUrl: resume,
-    location: "San Francisco, CA",
+    location: "Matara, Sri Lanka",
     email: "dhpdhananjana@email.com",
-    phone: "+94 (076) 451-2428",
+    phone: "+94 (76) 451-2428",
     social: {
-      github: "https://github.com/alexjohnson",
-      linkedin: "https://linkedin.com/in/alexjohnson",
-      twitter: "https://twitter.com/alexjohnson",
+      github: "https://github.com/hirushan2001",
+      linkedin: "https://www.linkedin.com/in/dhananjana-hirushan-70992625b/",
+      twitter: "https://x.com/dhanajanahp",
       portfolio: "https://alexjohnson.dev"
     }
   },

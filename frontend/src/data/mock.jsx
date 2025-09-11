@@ -118,7 +118,7 @@ skills: {
   ],
   tools: [
     { name: "Docker", level: 90, icon: <Icon icon="logos:docker-icon" /> },
-    { name: "AWS", level: 88, icon: <Icon icon="logos:aws" /> },
+    // { name: "AWS", level: 88, icon: <Icon icon="logos:aws" /> },
     { name: "Git", level: 96, icon: <Icon icon="logos:git-icon" /> },
     { name: "Redis", level: 86, icon: <Icon icon="logos:redis" /> },
     { name: "Vite", level: 89, icon: <Icon icon="logos:vitejs" /> },

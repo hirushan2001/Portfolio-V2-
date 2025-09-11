@@ -5,6 +5,7 @@ import uomLogo from '../assets/uom_Logo.png';
 import aloysiusLogo from '../assets/AloysiusLogo.png';
 import siddarthaLogo from '../assets/siddarthaLogo.png';
 import agrithmicsLogo from '../assets/AgrithmicsLogo.png';
+import { Icon } from "@iconify/react";
 
 export const portfolioData = {
   personal: {
@@ -87,43 +88,46 @@ export const portfolioData = {
     }
   ],
 
-  skills: {
-    frontend: [
-      { name: "React", level: 95, icon: "⚛️" },
-      { name: "Vue.js", level: 90, icon: "💚" },
-      { name: "TypeScript", level: 92, icon: "🔷" },
-      { name: "Next.js", level: 88, icon: "▲" },
-      { name: "React Native", level: 85, icon: "📱" },
-      { name: "Flutter", level: 80, icon: "🐦" },
-      { name: "HTML/CSS", level: 98, icon: "🎨" },
-      { name: "Tailwind CSS", level: 94, icon: "💨" }
-    ],
-    backend: [
-      { name: "Node.js", level: 93, icon: "💚" },
-      { name: "Python", level: 90, icon: "🐍" },
-      { name: "Express.js", level: 92, icon: "🚂" },
-      { name: "FastAPI", level: 88, icon: "⚡" },
-      { name: "GraphQL", level: 85, icon: "📊" },
-      { name: "REST APIs", level: 95, icon: "🔌" },
-      { name: "Microservices", level: 87, icon: "🏗️" },
-      { name: "Socket.io", level: 84, icon: "🔄" }
-    ],
-    database: [
-      { name: "MongoDB", level: 92, icon: "🍃" },
-      { name: "PostgreSQL", level: 89, icon: "🐘" },
-      { name: "Redis", level: 86, icon: "🔴" },
-      { name: "MySQL", level: 85, icon: "🐬" },
-      { name: "Firebase", level: 83, icon: "🔥" }
-    ],
-    tools: [
-      { name: "Docker", level: 90, icon: "🐳" },
-      { name: "AWS", level: 88, icon: "☁️" },
-      { name: "Git", level: 96, icon: "📝" },
-      { name: "Jenkins", level: 82, icon: "👷" },
-      { name: "Kubernetes", level: 80, icon: "☸️" },
-      { name: "Linux", level: 91, icon: "🐧" }
-    ]
-  },
+skills: {
+  frontend: [
+    { name: "React", level: 95, icon: <Icon icon="logos:react" /> },
+    { name: "TypeScript", level: 92, icon: <Icon icon="logos:typescript-icon" /> },
+    { name: "Next.js", level: 88, icon: <Icon icon="logos:nextjs-icon" /> },
+    { name: "React Native", level: 85, icon: <Icon icon="logos:react" /> },
+    { name: "HTML5", level: 98, icon: <Icon icon="logos:html-5" /> },
+    { name: "CSS3", level: 94, icon: <Icon icon="logos:css-3" /> },
+    { name: "Tailwind CSS", level: 94, icon: <Icon icon="logos:tailwindcss-icon" /> },
+    { name: "Material UI", level: 90, icon: <Icon icon="logos:material-ui" /> },
+    { name: "Ant Design", level: 85, icon: <Icon icon="logos:ant-design" /> }
+  ],
+  backend: [
+    { name: ".NET", level: 86, icon: <Icon icon="logos:dotnet" /> },
+    { name: "Node.js", level: 93, icon: <Icon icon="logos:nodejs-icon" /> },
+    { name: "Express.js", level: 92, icon: <Icon icon="simple-icons:express" /> },
+  ],
+  database: [
+    { name: "MongoDB", level: 92, icon: <Icon icon="logos:mongodb-icon" /> },
+    { name: "MySQL", level: 85, icon: <Icon icon="logos:mysql" /> },
+    { name: "MS SQL", level: 88, icon: <Icon icon="simple-icons:microsoftsqlserver" /> }
+  ],
+  languages: [
+    { name: "Java", level: 93, icon: <Icon icon="logos:java" /> },
+    { name: "C#", level: 90, icon: <Icon icon="logos:c-sharp" /> },
+    { name: "C", level: 88, icon: <Icon icon="logos:c" /> },
+    { name: "JavaScript", level: 95, icon: <Icon icon="logos:javascript" /> }
+  ],
+  tools: [
+    { name: "Docker", level: 90, icon: <Icon icon="logos:docker-icon" /> },
+    { name: "AWS", level: 88, icon: <Icon icon="logos:aws" /> },
+    { name: "Git", level: 96, icon: <Icon icon="logos:git-icon" /> },
+    { name: "Redis", level: 86, icon: <Icon icon="logos:redis" /> },
+    { name: "Vite", level: 89, icon: <Icon icon="logos:vitejs" /> },
+    { name: "Linux", level: 91, icon: <Icon icon="logos:linux-tux" /> },
+    { name: "Blender", level: 75, icon: <Icon icon="logos:blender" /> },
+    { name: "Azure DevOps", level: 85, icon: <Icon icon="simple-icons:azuredevops" /> },
+    { name: "Figma", level: 92, icon: <Icon icon="logos:figma" /> }
+  ],
+},
 
   projects: [
     {

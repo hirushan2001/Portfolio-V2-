@@ -15,6 +15,7 @@ const Skills = () => {
     { id: 'frontend', label: 'Frontend', icon: Code, color: 'from-blue-500 to-cyan-500' },
     { id: 'backend', label: 'Backend', icon: Server, color: 'from-green-500 to-emerald-500' },
     { id: 'database', label: 'Database', icon: Database, color: 'from-purple-500 to-violet-500' },
+    { id: 'languages', label: 'Languages', icon: Code, color: 'from-yellow-500 to-amber-500' },
     { id: 'tools', label: 'Tools & DevOps', icon: Wrench, color: 'from-orange-500 to-red-500' }
   ];
 

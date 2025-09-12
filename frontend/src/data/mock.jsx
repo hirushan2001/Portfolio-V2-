@@ -5,12 +5,12 @@ import uomLogo from '../assets/uom_logo.png';
 import aloysiusLogo from '../assets/AloysiusLogo.png';
 import siddarthaLogo from '../assets/siddarthaLogo.png';
 import agrithmicsLogo from '../assets/AgrithmicsLogo.png';
-import Handfree from '../assets/projects/Handfree.png';
-import PortfolioV1 from '../assets/projects/PortfolioV1.png';
-import Meethub from '../assets/projects/Meethub1.png';
-import FieldMaster from '../assets/projects/FeildMaster.png';
-import PortfolioV2 from '../assets/projects/PortfolioV2.png';
-import FitnessApp from '../assets/projects/FitnessApp.png';
+import Handfree from '../assets/Projects/Handfree.png';
+import PortfolioV1 from '../assets/Projects/PortfolioV1.png';
+import Meethub from '../assets/Projects/Meethub1.png';
+import FieldMaster from '../assets/Projects/FeildMaster.png';
+import PortfolioV2 from '../assets/Projects/PortfolioV2.png';
+import FitnessApp from '../assets/Projects/FitnessApp.png';
 import { Icon } from "@iconify/react";
 
 export const portfolioData = {

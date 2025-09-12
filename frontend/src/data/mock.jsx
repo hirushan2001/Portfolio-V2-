@@ -164,8 +164,8 @@ skills: {
       description: "My personal portfolio website showcasing my projects, skills, and experience. Built with React.js and Tailwind CSS for a modern, responsive design.",
       image: PortfolioV2,
       technologies: ["React", "Tailwind CSS", "Framer Motion","Node.js"],
-      demoUrl: "https://chat-app-demo.com",
-      githubUrl: "https://github.com/alexjohnson/realtime-chat",
+      demoUrl: "https://portfolio-v2-iiws.vercel.app/",
+      //githubUrl: "https://github.com/alexjohnson/realtime-chat",
       featured: false,
       category: "Frontend"
     },

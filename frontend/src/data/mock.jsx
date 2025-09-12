@@ -1,7 +1,7 @@
 // Mock data for the portfolio - This will be replaced with backend integration later
 import resume from '../assets/mycv.pdf';
 import photo from '../assets/myphoto.png';
-import uomLogo from '../assets/uom_Logo.png';
+import uomLogo from '../assets/uom_logo.png';
 import aloysiusLogo from '../assets/AloysiusLogo.png';
 import siddarthaLogo from '../assets/siddarthaLogo.png';
 import agrithmicsLogo from '../assets/AgrithmicsLogo.png';

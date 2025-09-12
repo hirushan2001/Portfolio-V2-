@@ -192,18 +192,6 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send a Message
               </h3>
-
-              {isSubmitted && (
-                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                  <div className="flex items-center">
-                    <CheckCircle size={20} className="text-green-500 mr-3" />
-                    <p className="text-green-700 dark:text-green-300 font-medium">
-                      Thank you! Your message has been sent successfully.
-                    </p>
-                  </div>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -289,6 +277,16 @@ const Contact = () => {
                     </>
                   )}
                 </button>
+                 {isSubmitted && (
+                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <div className="flex items-center">
+                    <CheckCircle size={20} className="text-green-500 mr-3" />
+                    <p className="text-green-700 dark:text-green-300 font-medium">
+                      Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                </div>
+              )}
               </form>
             </div>
           </div>

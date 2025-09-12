@@ -42,7 +42,12 @@ const Contact = () => {
   setIsSubmitting(true);
 
   try {
-    const response = await axios.post('http://localhost:5000/api/email/send', formData);
+    // const response = await axios.post('http://localhost:5000/api/email/send', formData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACK_END_URL}/api/email/send`,
+        formData
+      );
+    
     if (response.data.success) {
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });

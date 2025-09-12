@@ -39,7 +39,7 @@ export const portfolioData = {
       "Applied academic knowledge to real-world projects and industry practices",
       "Continuously learning and adapting to new technologies and frameworks"
     ],
-    interests: ["Open Source", "AI/ML", "Web Development", "Mobile Development"]
+    interests: ["Open Source", "UI/UX", "Web Development", "Mobile Development"]
   },
 
    experience: [
@@ -163,7 +163,7 @@ skills: {
       title: "Portfolio Website V2",
       description: "My personal portfolio website showcasing my projects, skills, and experience. Built with React.js and Tailwind CSS for a modern, responsive design.",
       image: PortfolioV2,
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      technologies: ["React", "Tailwind CSS", "Framer Motion","Node.js"],
       demoUrl: "https://chat-app-demo.com",
       githubUrl: "https://github.com/alexjohnson/realtime-chat",
       featured: false,

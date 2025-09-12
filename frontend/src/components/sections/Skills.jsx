@@ -44,18 +44,27 @@ const Skills = () => {
   };
 
   // Scroll observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
-    );
+ useEffect(() => {
+  const section = sectionRef.current;
+  if (!section) return;
 
-    const section = document.querySelector('#skills');
-    if (section) observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(section);
+
+  // Check if already visible on mount
+  if (section.getBoundingClientRect().top < window.innerHeight) {
+    setIsVisible(true);
+  }
+
+  return () => observer.disconnect();
+}, []);
+
 
   return (
     <section

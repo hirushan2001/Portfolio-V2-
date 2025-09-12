@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Github, Linkedin } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { Icon } from "@iconify/react";
 
 const Header = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,7 +101,11 @@ const Header = ({ activeSection }) => {
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            {isDark ? (
+              <Icon icon="mdi:weather-sunny" color="#facc15" width="20" height="20" /> 
+            ) : (
+              <Icon icon="mdi:weather-night" color="#3b82f6" width="20" height="20" />  
+            )}
             </button>
           </nav>
 
@@ -111,7 +116,12 @@ const Header = ({ activeSection }) => {
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              {/* {isDark ? <Sun size={18} /> : <Moon size={18} />}need coloer sun and moon */}
+                {isDark ? (
+                  <Icon icon="mdi:weather-sunny" color="#facc15" width="20" height="20" /> // yellow
+                ) : (
+                  <Icon icon="mdi:weather-night" color="#3b82f6" width="20" height="20" /> // blue
+                )}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

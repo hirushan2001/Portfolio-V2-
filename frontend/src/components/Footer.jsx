@@ -10,37 +10,58 @@ const Footer = () => {
     { name: 'GitHub', url: personal.social.github, icon: Github },
     { name: 'LinkedIn', url: personal.social.linkedin, icon: Linkedin },
     { name: 'Twitter', url: personal.social.twitter, icon: Twitter },
-    { name: 'Email', url: `mailto:${personal.email}`, icon: Mail }
+    { name: 'Email', scrollTo: 'contact', icon: Mail } // new scrollTo property
   ];
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      {/* Animated gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-pulse"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Description */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              &lt;{personal.name.split(' ').map(n => n[0]).join('')}/&gt;
+            <div
+            className="text-2xl font-bold cursor-pointer 
+                      bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 
+                      bg-[length:200%_200%] bg-clip-text text-transparent 
+                      animate-gradient-x"
+          >
+              &lt;DH/&gt;
+              {/* &lt;{personal.name.split(' ').map(n => n[0]).join('')}/&gt; */}
             </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-md">
               Passionate about creating innovative solutions and building amazing digital experiences.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
-                    aria-label={social.name}
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
+              const Icon = social.icon;
+              return social.scrollTo ? (
+                <button
+                  key={social.name}
+                  onClick={() => {
+                    const element = document.querySelector(`#${social.scrollTo}`);
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <Icon size={18} />
+                </button>
+              ) : (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
             </div>
           </div>
 
@@ -53,9 +74,7 @@ const Footer = () => {
                   key={link}
                   onClick={() => {
                     const element = document.querySelector(`#${link.toLowerCase()}`);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="text-left text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                 >

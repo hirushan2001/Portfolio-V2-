@@ -1,149 +1,181 @@
-import React, { useState, useEffect } from 'react';
-import { Code, Server, Database, Wrench } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Code, Server, Database, Wrench, Layers } from 'lucide-react';
 import portfolioData from '../../data/mock';
 
 const Skills = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('frontend');
+  const [showBottom, setShowBottom] = useState(false); // new state for bottom section
+  const sectionRef = useRef(null);
+
   const { skills } = portfolioData;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.querySelector('#skills');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
   const categories = [
+    { id: 'all', label: 'All', icon: Layers, color: 'from-pink-500 to-red-500' },
     { id: 'frontend', label: 'Frontend', icon: Code, color: 'from-blue-500 to-cyan-500' },
     { id: 'backend', label: 'Backend', icon: Server, color: 'from-green-500 to-emerald-500' },
     { id: 'database', label: 'Database', icon: Database, color: 'from-purple-500 to-violet-500' },
+    { id: 'languages', label: 'Languages', icon: Code, color: 'from-yellow-500 to-amber-500' },
     { id: 'tools', label: 'Tools & DevOps', icon: Wrench, color: 'from-orange-500 to-red-500' }
   ];
 
-  const SkillBar = ({ skill, index }) => {
-    const [animatedLevel, setAnimatedLevel] = useState(0);
+  const skillList = activeCategory === 'all' ? Object.values(skills).flat() : skills[activeCategory] || [];
 
-    useEffect(() => {
-      if (isVisible) {
-        const timer = setTimeout(() => {
-          setAnimatedLevel(skill.level);
-        }, index * 100);
-        return () => clearTimeout(timer);
-      }
-    }, [isVisible, skill.level, index]);
-
-    return (
-      <div className="group">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center space-x-3">
-            <span className="text-2xl">{skill.icon}</span>
-            <span className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-              {skill.name}
-            </span>
-          </div>
-          <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
-            {skill.level}%
-          </span>
-        </div>
-        <div className="relative">
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out relative"
-              style={{ width: `${animatedLevel}%` }}
-            >
-              <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  const containerVariants = {
+    hidden: {},
+    visible: { 
+      transition: { 
+        staggerChildren: 0.05,
+        when: "beforeChildren"
+      } 
+    },
   };
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 20 } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+  };
+
+  const bottomVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  };
+
+  // Scroll observer
+ useEffect(() => {
+  const section = sectionRef.current;
+  if (!section) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(section);
+
+  // Check if already visible on mount
+  if (section.getBoundingClientRect().top < window.innerHeight) {
+    setIsVisible(true);
+  }
+
+  return () => observer.disconnect();
+}, []);
+
+
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Skills & Technologies
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              A comprehensive overview of my technical expertise and proficiency levels
-            </p>
-          </div>
+    <section
+        id="skills"
+        ref={sectionRef}
+        className="py-16 bg-gray-50 dark:bg-gray-900"
+        style={{ minHeight: '600px' }} // Add a minimum height to prevent layout shift
+      >      
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Skills & Technologies</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Technologies I work with and love using</p>
+        </motion.div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 ${
-                    activeCategory === category.id
-                      ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-md border border-gray-200 dark:border-gray-700'
-                  }`}
-                >
-                  <Icon size={20} className="mr-2" />
-                  {category.label}
-                </button>
-              );
-            })}
-          </div>
+        {/* Category Tabs */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          {categories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 hover:rotate-1 ${
+                  activeCategory === category.id
+                    ? `bg-gradient-to-r ${category.color} text-white shadow-2xl`
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-xl border border-gray-200 dark:border-gray-700'
+                }`}
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <Icon size={20} className={`mr-2 ${activeCategory === category.id ? 'animate-spin-slow' : ''}`} />
+                {category.label}
+              </button>
+            );
+          })}
+        </motion.div>
 
-          {/* Skills Grid */}
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {skills[activeCategory]?.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className={`p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
-                >
-                  <SkillBar skill={skill} index={index} />
-                </div>
+        {/* Skills Grid */}
+        <AnimatePresence mode="wait">
+          {isVisible && (
+            <motion.div
+              key={activeCategory + isVisible}
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-items-center transition-all duration-500"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              onAnimationComplete={() => setShowBottom(true)} // trigger bottom section after grid animates
+            >
+              {skillList.map((skill) => (
+                <motion.div key={skill.name} variants={itemVariants} className="flex flex-col items-center cursor-pointer">
+                  <span className="text-4xl mb-1">{skill.icon}</span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-white text-center">{skill.name}</span>
+                </motion.div>
               ))}
-            </div>
-          </div>
-
-          {/* Skills Summary */}
-          <div className={`mt-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:400%_400%] animate-gradient-x rounded-2xl p-8 text-white text-center">
-              <h3 className="text-2xl font-bold mb-4">Always Learning & Growing</h3>
-              <p className="text-white/90 max-w-2xl mx-auto mb-6">
-                Technology evolves rapidly, and I'm committed to staying at the forefront. 
-                I regularly explore new frameworks, languages, and development methodologies to deliver cutting-edge solutions.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-2xl">🚀</span>
-                  <span>Continuous Learning</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-2xl">⚡</span>
-                  <span>Fast Adaptation</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-2xl">💡</span>
-                  <span>Innovation Mindset</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      {!showBottom && (
+        <div style={{ height: '220px', transition: 'height 0.5s' }} aria-hidden="true"></div>
+      )}
+        {/* Bottom Section */}
+          <AnimatePresence>
+            {showBottom && (
+              <motion.div
+                className="mt-16"
+                variants={bottomVariants}
+                initial="hidden"
+                animate="visible"
+              >
+              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:400%_400%] animate-gradient-x rounded-2xl p-8 text-white text-center">
+                <h3 className="text-2xl font-bold mb-4">Always Learning & Growing</h3>
+                <p className="text-white/90 max-w-2xl mx-auto mb-6">
+                  Technology evolves rapidly, and I'm committed to staying at the forefront. 
+                  I regularly explore new frameworks, languages, and development methodologies to deliver cutting-edge solutions.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                    <span className="text-2xl">🚀</span>
+                    <span>Continuous Learning</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                    <span className="text-2xl">⚡</span>
+                    <span>Fast Adaptation</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                    <span className="text-2xl">💡</span>
+                    <span>Innovation Mindset</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+
+      <style>{`
+        @keyframes spin-slow { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+        .animate-spin-slow { animation: spin-slow 2s linear infinite; }
+      `}</style>
     </section>
   );
 };

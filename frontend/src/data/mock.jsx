@@ -1,204 +1,206 @@
 // Mock data for the portfolio - This will be replaced with backend integration later
+import resume from '../assets/mycv.pdf';
+import photo from '../assets/myphoto.png';
+import uomLogo from '../assets/uom_Logo.png';
+import aloysiusLogo from '../assets/AloysiusLogo.png';
+import siddarthaLogo from '../assets/siddarthaLogo.png';
+import agrithmicsLogo from '../assets/AgrithmicsLogo.png';
+import Handfree from '../assets/projects/Handfree.png';
+import PortfolioV1 from '../assets/projects/PortfolioV1.png';
+import Meethub from '../assets/projects/Meethub1.png';
+import FieldMaster from '../assets/projects/FeildMaster.png';
+import PortfolioV2 from '../assets/projects/PortfolioV2.png';
+import FitnessApp from '../assets/projects/FitnessApp.png';
+import { Icon } from "@iconify/react";
 
 export const portfolioData = {
   personal: {
-    name: "Alex Johnson",
-    title: "Full-Stack Software Engineer",
+    name: "Dhananjana Hirushan",
+    title: ["Full-Stack Developer", "Front-End Developer", "Content Creator"], 
     tagline: "Building scalable solutions across web, mobile, and backend systems",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    resumeUrl: "/resume.pdf",
-    location: "San Francisco, CA",
-    email: "alex.johnson@email.com",
-    phone: "+1 (555) 123-4567",
+    photo: photo,
+    resumeUrl: resume,
+    location: "Matara, Sri Lanka",
+    email: "dhpdhananjana@email.com",
+    phone: "+94 (76) 451-2428",
     social: {
-      github: "https://github.com/alexjohnson",
-      linkedin: "https://linkedin.com/in/alexjohnson",
-      twitter: "https://twitter.com/alexjohnson",
+      github: "https://github.com/hirushan2001",
+      linkedin: "https://www.linkedin.com/in/dhananjana-hirushan-70992625b/",
+      twitter: "https://x.com/dhanajanahp",
       portfolio: "https://alexjohnson.dev"
     }
   },
 
   about: {
-    description: "Passionate full-stack developer with 5+ years of experience building scalable web applications, mobile apps, and robust backend systems. I love solving complex problems and creating user-centric solutions that make a real impact.",
+    description: "Passionate IT undergraduate with proven problem-solving skills and hands-on industry experience. A collaborative team player with leadership qualities and adaptability, eager to build innovative solutions and explore emerging technologies.",
     highlights: [
-      "5+ years of full-stack development experience",
-      "Led development teams of 3-8 developers",
-      "Built applications serving 100K+ users",
-      "Expert in modern web and mobile technologies"
+      "2+ years of full-stack development experience",
+      "Undergraduate in Information Technology at the University of Moratuwa",
+      "Applied academic knowledge to real-world projects and industry practices",
+      "Continuously learning and adapting to new technologies and frameworks"
     ],
-    interests: ["Open Source", "AI/ML", "Cloud Architecture", "Mobile Development"]
+    interests: ["Open Source", "UI/UX", "Web Development", "Mobile Development"]
   },
 
-  experience: [
+   experience: [
     {
       id: 1,
-      company: "TechCorp Inc.",
-      position: "Senior Full-Stack Engineer",
-      duration: "2022 - Present",
-      location: "San Francisco, CA",
-      description: "Leading development of microservices architecture serving 50K+ daily active users. Built React Native mobile app with 4.8 App Store rating.",
+      company: "Agrithmics Pvt Ltd",
+      position: "Intern Software Engineer",
+      duration: "2025 Feb - 2025 Aug",
+      location: "Rajagiriya, Sri Lanka",
+      logo: agrithmicsLogo,
+      description: "Contributed to multiple ERP projects in the agricultural sector, working on both frontend and backend development while improving automation processes and system functionality.",
       achievements: [
-        "Reduced API response time by 40% through optimization",
-        "Led migration to containerized deployment reducing costs by 30%",
-        "Mentored 3 junior developers"
+        "Developed automation processes for supplier payment and advance payment workflows",
+        "Created report screens and implemented mobile APIs for production use",
+        "Fixed critical bugs across ERP modules ensuring smooth system performance",
+        "Collaborated with team leads and engineers using Agile practices with Azure DevOps"
       ],
-      technologies: ["React", "Node.js", "Python", "AWS", "Docker", "React Native"]
-    },
-    {
-      id: 2,
-      company: "StartupXYZ",
-      position: "Full-Stack Developer",
-      duration: "2020 - 2022",
-      location: "Remote",
-      description: "Developed MVP from concept to launch, handling both frontend and backend development. Built scalable REST APIs and responsive web applications.",
-      achievements: [
-        "Built entire platform from scratch in 6 months",
-        "Implemented real-time chat system with WebSocket",
-        "Achieved 99.9% uptime in production"
-      ],
-      technologies: ["Vue.js", "Express.js", "MongoDB", "Redis", "Socket.io"]
-    },
-    {
-      id: 3,
-      company: "WebSolutions Ltd.",
-      position: "Frontend Developer",
-      duration: "2019 - 2020",
-      location: "New York, NY",
-      description: "Specialized in creating responsive, accessible web applications with modern JavaScript frameworks.",
-      achievements: [
-        "Improved page load speed by 60%",
-        "Implemented accessibility standards (WCAG 2.1)",
-        "Built component library used across 5 projects"
-      ],
-      technologies: ["React", "TypeScript", "SASS", "Webpack", "Jest"]
+      technologies: ["React.js", "Node.js", ".NET", "MSSQL", "Azure DevOps"]
     }
   ],
 
   education: [
     {
       id: 1,
-      institution: "Stanford University",
-      degree: "Master of Science in Computer Science",
-      duration: "2017 - 2019",
-      location: "Stanford, CA",
-      gpa: "3.8/4.0",
-      focus: "Software Engineering & AI"
+      institution: "University of Moratuwa",
+      degree: "BSc (Hons.) in Information Technology",
+      duration: "2022 - 2026 (Expected)",
+      location: "Moratuwa, Sri Lanka",
+      logo: uomLogo, 
+      gpa: "Current GPA: 3.42 / 4.0",
+      focus: "Software Engineering"
     },
     {
       id: 2,
-      institution: "UC Berkeley",
-      degree: "Bachelor of Science in Computer Science",
-      duration: "2013 - 2017",
-      location: "Berkeley, CA",
-      gpa: "3.7/4.0",
-      focus: "Computer Systems & Algorithms"
+      institution: "St. Aloysius College",
+      degree: "G.C.E. Advanced Level (Physical Science Stream)",
+      duration: "2011 - 2020",
+      location: "Galle, Sri Lanka",
+      logo: aloysiusLogo,
+      gpa: "Z-Score: 1.7401",
+      focus: "Mathematics, Physics, Chemistry"
+    },
+    {
+      id: 3,
+      institution: "MR/Siddartha College",
+      degree: "Primary Education",
+      duration: "2006 - 2011",
+      location: "Weligama, Sri Lanka",
+      logo: siddarthaLogo,
+      gpa: "", // No GPA for primary education
+      focus: "General Education"
     }
   ],
 
-  skills: {
-    frontend: [
-      { name: "React", level: 95, icon: "⚛️" },
-      { name: "Vue.js", level: 90, icon: "💚" },
-      { name: "TypeScript", level: 92, icon: "🔷" },
-      { name: "Next.js", level: 88, icon: "▲" },
-      { name: "React Native", level: 85, icon: "📱" },
-      { name: "Flutter", level: 80, icon: "🐦" },
-      { name: "HTML/CSS", level: 98, icon: "🎨" },
-      { name: "Tailwind CSS", level: 94, icon: "💨" }
-    ],
-    backend: [
-      { name: "Node.js", level: 93, icon: "💚" },
-      { name: "Python", level: 90, icon: "🐍" },
-      { name: "Express.js", level: 92, icon: "🚂" },
-      { name: "FastAPI", level: 88, icon: "⚡" },
-      { name: "GraphQL", level: 85, icon: "📊" },
-      { name: "REST APIs", level: 95, icon: "🔌" },
-      { name: "Microservices", level: 87, icon: "🏗️" },
-      { name: "Socket.io", level: 84, icon: "🔄" }
-    ],
-    database: [
-      { name: "MongoDB", level: 92, icon: "🍃" },
-      { name: "PostgreSQL", level: 89, icon: "🐘" },
-      { name: "Redis", level: 86, icon: "🔴" },
-      { name: "MySQL", level: 85, icon: "🐬" },
-      { name: "Firebase", level: 83, icon: "🔥" }
-    ],
-    tools: [
-      { name: "Docker", level: 90, icon: "🐳" },
-      { name: "AWS", level: 88, icon: "☁️" },
-      { name: "Git", level: 96, icon: "📝" },
-      { name: "Jenkins", level: 82, icon: "👷" },
-      { name: "Kubernetes", level: 80, icon: "☸️" },
-      { name: "Linux", level: 91, icon: "🐧" }
-    ]
-  },
+skills: {
+  frontend: [
+    { name: "React", level: 95, icon: <Icon icon="logos:react" /> },
+    { name: "TypeScript", level: 92, icon: <Icon icon="logos:typescript-icon" /> },
+    { name: "Next.js", level: 88, icon: <Icon icon="logos:nextjs-icon" /> },
+    { name: "React Native", level: 85, icon: <Icon icon="logos:react" /> },
+    { name: "HTML5", level: 98, icon: <Icon icon="logos:html-5" /> },
+    { name: "CSS3", level: 94, icon: <Icon icon="logos:css-3" /> },
+    { name: "Tailwind CSS", level: 94, icon: <Icon icon="logos:tailwindcss-icon" /> },
+    { name: "Material UI", level: 90, icon: <Icon icon="logos:material-ui" /> },
+    { name: "Ant Design", level: 85, icon: <Icon icon="logos:ant-design" /> }
+  ],
+  backend: [
+    { name: ".NET", level: 86, icon: <Icon icon="logos:dotnet" /> },
+    { name: "Node.js", level: 93, icon: <Icon icon="logos:nodejs-icon" /> },
+    { name: "Express.js", level: 92, icon: <Icon icon="simple-icons:express" /> },
+  ],
+  database: [
+    { name: "MongoDB", level: 92, icon: <Icon icon="logos:mongodb-icon" /> },
+    { name: "MySQL", level: 85, icon: <Icon icon="logos:mysql" /> },
+    { name: "MS SQL", level: 88, icon: <Icon icon="simple-icons:microsoftsqlserver" /> }
+  ],
+  languages: [
+    { name: "Java", level: 93, icon: <Icon icon="logos:java" /> },
+    { name: "C#", level: 90, icon: <Icon icon="logos:c-sharp" /> },
+    { name: "C", level: 88, icon: <Icon icon="logos:c" /> },
+    { name: "JavaScript", level: 95, icon: <Icon icon="logos:javascript" /> }
+  ],
+  tools: [
+    { name: "Docker", level: 90, icon: <Icon icon="logos:docker-icon" /> },
+    // { name: "AWS", level: 88, icon: <Icon icon="logos:aws" /> },
+    { name: "Git", level: 96, icon: <Icon icon="logos:git-icon" /> },
+    { name: "Redis", level: 86, icon: <Icon icon="logos:redis" /> },
+    { name: "Vite", level: 89, icon: <Icon icon="logos:vitejs" /> },
+    { name: "Linux", level: 91, icon: <Icon icon="logos:linux-tux" /> },
+    { name: "Blender", level: 75, icon: <Icon icon="logos:blender" /> },
+    { name: "Azure DevOps", level: 85, icon: <Icon icon="simple-icons:azuredevops" /> },
+    { name: "Figma", level: 92, icon: <Icon icon="logos:figma" /> }
+  ],
+},
 
   projects: [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React frontend, Node.js backend, and MongoDB. Features include real-time inventory, payment processing, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-      demoUrl: "https://demo-ecommerce.com",
-      githubUrl: "https://github.com/alexjohnson/ecommerce-platform",
+      title: "FeidMaster",
+      description: "eldMaster is a comprehensive land measuring and management application available on both mobile and web platforms. It features accurate land measurement, plantation and fertilization count estimation, fencing details estimation, land clearing assessment, and map management tools, including resizing and partitioning lands.",
+      image: FieldMaster,
+      technologies: ["React", "Node.js", "MongoDB", "React Native"],
+      demoUrl: "https://field-master-frontend.vercel.app/",
+      githubUrl: "https://github.com/kanishkazoysa/FieldMaster",
       featured: true,
       category: "Full-Stack"
     },
     {
       id: 2,
-      title: "Task Management Mobile App",
-      description: "Cross-platform mobile app built with React Native. Features offline sync, push notifications, and real-time collaboration.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-      demoUrl: "https://apps.apple.com/app/taskmanager",
-      githubUrl: "https://github.com/alexjohnson/task-manager-app",
+      title: "HandFree.lk",
+      description: "HandFree is an e-commerce platform specializing in iPhone and Apple products, built with the MERN stack and Micro-Service Architecture for scalability. It features secure OTP-based authentication, a PayHere-integrated payment gateway, dynamic product search and filtering, a persistent shopping cart, and a centralized admin dashboard for managing products, orders, and inventory..",
+      image: Handfree,
+      technologies: ["React", "Node.js", "MongoDB", "Express.js",],
+      //demoUrl: "https://apps.apple.com/app/taskmanager",
+      githubUrl: "https://github.com/EADOnlineShoppingSystem",
       featured: true,
-      category: "Mobile"
+      category: "Full-Stack"
     },
     {
       id: 3,
-      title: "Real-time Chat Application",
-      description: "WebSocket-based chat application with message encryption, file sharing, and video calling capabilities.",
-      image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop",
-      technologies: ["Socket.io", "Express.js", "React", "WebRTC"],
+      title: "Portfolio Website V2",
+      description: "My personal portfolio website showcasing my projects, skills, and experience. Built with React.js and Tailwind CSS for a modern, responsive design.",
+      image: PortfolioV2,
+      technologies: ["React", "Tailwind CSS", "Framer Motion","Node.js"],
       demoUrl: "https://chat-app-demo.com",
       githubUrl: "https://github.com/alexjohnson/realtime-chat",
       featured: false,
-      category: "Backend"
+      category: "Frontend"
     },
     {
       id: 4,
-      title: "AI-Powered Analytics Dashboard",
-      description: "Data visualization dashboard with machine learning insights. Built with Python backend and React frontend.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      technologies: ["Python", "FastAPI", "React", "D3.js", "TensorFlow"],
-      demoUrl: "https://analytics-dashboard.com",
-      githubUrl: "https://github.com/alexjohnson/ai-analytics",
+      title: "MeetHub",
+      description: "This project replicates the widely used Zoom video conferencing tool, leveraging the latest Next.js and TypeScript technologies. It enables users to log in securely, create meetings, and access a range of meeting functionalities, including recording, screen sharing, and participant management. With a focus on security and real-time communication, this platform provides a seamless video conferencing experience.",
+      image: Meethub,
+      technologies: ["Next.js", "TypeScript", "Node.js", "Tailwind CSS"],
+      //demoUrl: "https://analytics-dashboard.com",
+      githubUrl: "https://github.com/hirushan2001/MeetHub",
       featured: true,
       category: "Full-Stack"
     },
     {
       id: 5,
-      title: "Weather App",
-      description: "Beautiful weather application with location-based forecasts and interactive maps.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      technologies: ["React", "Weather API", "Mapbox", "CSS3"],
-      demoUrl: "https://weather-app-demo.com",
-      githubUrl: "https://github.com/alexjohnson/weather-app",
+      title: "Portfolio Website V1",
+      description: "A personal portfolio website built with React.js and CSS3, showcasing my projects, skills, and experience with a clean and responsive design.",
+      image: PortfolioV1,
+      technologies: ["React", "Node.js", "Framer Motion"],
+      demoUrl: "https://dhananjanahirushan.vercel.app/",
+      githubUrl: "https://github.com/hirushan2001/portfolio",
       featured: false,
       category: "Frontend"
     },
     {
       id: 6,
-      title: "Fitness Tracking API",
-      description: "REST API for fitness tracking with user authentication, workout logging, and progress analytics.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-      technologies: ["Node.js", "MongoDB", "JWT", "Express.js"],
+      title: "Fitness Mobile App",
+      description: "A React Native mobile app that fetches data from a fitness API to provide users with workout information, exercises, and health insights.",
+      image: FitnessApp,
+      technologies: ["React Native"],
       demoUrl: null,
-      githubUrl: "https://github.com/alexjohnson/fitness-api",
+      githubUrl: "https://github.com/hirushan2001/Fitness_app",
       featured: false,
-      category: "Backend"
+      category: "Mobile"
     }
   ]
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Download, ArrowDown, Code, Palette, Database, Smartphone } from 'lucide-react';
 import portfolioData from '../../data/mock';
+import { ReactTyped } from "react-typed";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,7 +26,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section 
+        id="home"
+        className="min-h-screen flex items-start lg:items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 relative overflow-hidden"
+      >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -43,8 +47,14 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-light">
-                {personal.title}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light min-h-[3rem] flex items-center ">
+                <ReactTyped 
+                  strings={personal.title}
+                  typeSpeed={100}
+                  backSpeed={50}
+                  loop={true}
+                  className="text-blue-600 dark:text-blue-400"                
+                  />
               </h2>
               
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
@@ -73,7 +83,7 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <a
                 href={personal.resumeUrl}
-                download
+                download="Dhananjana_Hirushan_CV.pdf"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-blue-700 hover:to-purple-700"
               >
                 <Download size={20} className="mr-2" />
@@ -92,17 +102,17 @@ const Hero = () => {
             {/* Stats */}
             <div className={`grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 dark:border-gray-700 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">5+</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white">3+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">50+</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white">10+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">100K+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Users Served</div>
-              </div>
+             <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">20+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Technologies Learned</div>
+            </div>
             </div>
           </div>
 

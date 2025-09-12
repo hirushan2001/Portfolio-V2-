@@ -6,6 +6,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import AnimatedBackground from './components/AnimatedBackground';
 import Footer from './components/Footer';
+import LoadingPage from './components/LoadingPage';
 
 // Sections
 import Hero from './components/sections/Hero';
@@ -17,6 +18,15 @@ import Contact from './components/sections/Contact';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    setTimeout(() => {
+      setShowContent(true);
+    }, 100);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,28 +45,41 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once to set initial state
+    if (showContent) {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+    }
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [showContent]);
 
   return (
     <ThemeProvider>
-      <div className="App min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <AnimatedBackground />
-        <Header activeSection={activeSection} />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
+      {/* Loading screen */}
+      {isLoading && <LoadingPage onComplete={handleLoadingComplete} />}
+      
+      {/* Header - fixed outside of any transforms */}
+      {!isLoading && <Header activeSection={activeSection} />}
+      
+      {/* Main content with scale transform (Header is unaffected) */}
+      {!isLoading && (
+        <div className={`App min-h-screen bg-white dark:bg-gray-900 transition-all duration-1000 ${
+          showContent ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`}>
+          <AnimatedBackground />
+          
+          <main>
+            <Hero />
+            <About />
+            <Experience />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      )}
     </ThemeProvider>
   );
 }

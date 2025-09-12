@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
 import portfolioData from '../../data/mock';
+import axios from 'axios';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,20 +37,29 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Mock form submission - This will be replaced with backend integration
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/email/send', formData);
+    if (response.data.success) {
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } else {
+      alert('Failed to send email. Please try again.');
+    }
+  } catch (error) {
+    console.error('Email submission error:', error);
+    alert('An error occurred while sending the email.');
+  } finally {
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
+  }
+};
+
 
   const contactInfo = [
     {
@@ -182,18 +192,6 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send a Message
               </h3>
-
-              {isSubmitted && (
-                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                  <div className="flex items-center">
-                    <CheckCircle size={20} className="text-green-500 mr-3" />
-                    <p className="text-green-700 dark:text-green-300 font-medium">
-                      Thank you! Your message has been sent successfully.
-                    </p>
-                  </div>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -279,6 +277,16 @@ const Contact = () => {
                     </>
                   )}
                 </button>
+                 {isSubmitted && (
+                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <div className="flex items-center">
+                    <CheckCircle size={20} className="text-green-500 mr-3" />
+                    <p className="text-green-700 dark:text-green-300 font-medium">
+                      Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                </div>
+              )}
               </form>
             </div>
           </div>

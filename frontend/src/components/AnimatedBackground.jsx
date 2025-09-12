@@ -94,7 +94,7 @@ const AnimatedBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 opacity-30"
+      className="fixed inset-0 -z-10 bg-white dark:bg-gray-900"
       style={{ pointerEvents: 'none' }}
     />
   );

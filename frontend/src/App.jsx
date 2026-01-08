@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from './contexts/ThemeContext';
+import { Analytics } from '@vercel/analytics/react';
 
 //Components
 import Header from './components/Header';
@@ -80,6 +81,7 @@ function App() {
           <Footer />
         </div>
       )}
+       <Analytics />
     </ThemeProvider>
   );
 }
